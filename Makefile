@@ -6,7 +6,7 @@
 #    By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/21 19:18:37 by ltanenba          #+#    #+#              #
-#    Updated: 2018/03/20 15:25:44 by ltanenba         ###   ########.fr        #
+#    Updated: 2018/03/29 18:31:31 by ltanenba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,8 @@ BONUS_SRC	= ft_lstnew.c \
 			  ft_lstadd.c \
 			  ft_lstiter.c \
 			  ft_lstmap.c \
-			  ft_numlen_base.c
+			  ft_numlen_base.c \
+			  ft_copyuntil.c
 
 SRC			= $(LIBC_SRC) $(ADD_SRC) $(EX_SRC) $(BONUS_SRC)
 OBJ			= $(SRC:%.c=%.o)
