@@ -6,36 +6,35 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/19 15:48:08 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/02/23 00:12:04 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/03/30 00:18:04 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-char	*ft_itoa_base(int n, int base)
+char	*ft_itoa_base(int val, int base)
 {
-	char	cipher[16];
+	char	cipher[17];
+	char	tmp[33];
 	int		i;
-	int		tmp;
-	char	*res;
+	long	n;
 
-	ft_strcpy(cipher, "0123456789ABCDEF");
+	if (val == 0)
+		return (ft_strdup("0"));
 	if (base == 10)
-		return (ft_itoa(n));
+		return (ft_itoa(val));
+	n = val;
+	if (n < 0)
+		n *= -1;
+	ft_strcpy(cipher, "0123456789ABCDEF");
 	i = -1;
-	tmp = 0;
-	res = ft_strnew(33);
-	if (!res)
-		return (0);
-	if (!n)
-		res[0] = '0';
-	while (n)
+	while (++i < 33)
+		tmp[i] = '\0';
+	i = -1;
+	while (n > 0 && i < 33)
 	{
-		tmp = n % base;
+		tmp[++i] = cipher[n % base];
 		n /= base;
-		res[++i] = cipher[tmp];
 	}
-	ft_strrev(res);
-	return (res);
+	return (ft_strrev(tmp));
 }

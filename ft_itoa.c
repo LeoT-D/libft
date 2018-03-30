@@ -6,7 +6,7 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/19 15:33:26 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/02/23 00:05:03 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/03/30 00:01:50 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 
 char	*ft_itoa(int n)
 {
+	char	tmp[13];
 	int		i;
-	char	*res;
 	int		is_neg;
 
 	i = -1;
 	is_neg = 0;
-	res = ft_strnew(12);
-	if (!res)
-		return (0);
-	if (!n)
-		res[0] = '0';
+	while (++i < 13)
+		tmp[i] = '\0';
 	if (n < 0 && (is_neg = 1))
 		n *= -1;
 	if (n == -2147483648)
-		return (ft_strcpy(res, "-2147483648"));
-	while (n)
+		return (ft_strdup("-2147483648"));
+	if (n == 0)
+		return (ft_strdup("0"));
+	i = -1;
+	while (n > 0)
 	{
-		*(res + ++i) = (n % 10) + '0';
+		tmp[++i] = n % 10 + '0';
 		n /= 10;
 	}
 	if (is_neg)
-		*(res + ++i) = '-';
-	ft_strrev(res);
-	return (res);
+		tmp[++i] = '-';
+	return (ft_strrev(tmp));
 }
+

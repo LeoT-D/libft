@@ -6,7 +6,7 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/19 15:42:33 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/03/29 18:14:58 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/03/30 00:04:15 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 */
 
 char				*ft_itoa_base(int n, int base);
-void				ft_strrev(char *str);
+char				*ft_strrev(char *str);
 int					ft_isspace(char c);
 char				*ft_strjoin_null(char const *s1, char const *s2);
 int					ft_isupper(int c);
