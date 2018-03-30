@@ -6,7 +6,7 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/19 15:42:33 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/03/30 00:04:15 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/03/30 01:17:47 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <string.h>
+# include "clist.h"
 
 /*
 ** Libc Funks
