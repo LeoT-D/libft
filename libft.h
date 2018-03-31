@@ -6,7 +6,7 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/19 15:42:33 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/03/30 18:00:02 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/03/30 18:08:55 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define LIBFT_H
 
 # include <string.h>
-# include "clist.h"
-# include "get_next_line.h"
 
 /*
 ** Libc Funks
@@ -115,5 +113,41 @@ int					ft_islower(int c);
 void				ft_lstsort(t_list **head, int (*cmp)(void *, void *));
 int					ft_numlen_base(long n, int base);
 int					ft_copyuntil(char **dst, char *src, char c);
+
+/*
+** Get Next Line
+*/
+
+# define BUFF_SIZE 42
+
+# define GNL_MALLOC_CHECK(x) if (!(x)) return (-1);
+
+int					get_next_line(const int fd, char **line);
+
+/*
+** Circular Lists
+*/
+
+typedef struct		s_clist
+{
+	struct s_clist	*left;
+	struct s_clist	*right;
+	struct s_clist	*up;
+	struct s_clist	*down;
+	struct s_clist	*head;
+	char			*id;
+	size_t			content_size;
+	void			*content;
+}					t_clist;
+
+t_clist				*ft_lstcnew(void *content, size_t content_size, char *id);
+void				ft_delinkud(t_clist *n);
+void				ft_delinklr(t_clist *n);
+void				ft_relinkud(t_clist *n);
+void				ft_relinklr(t_clist *n);
+void				ft_lstcaddl(t_clist *lst, t_clist *n);
+void				ft_lstcaddr(t_clist *lst, t_clist *n);
+void				ft_lstcaddu(t_clist *lst, t_clist *n);
+void				ft_lstcaddd(t_clist *lst, t_clist *n);
 
 #endif
