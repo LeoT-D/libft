@@ -6,7 +6,7 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/22 10:53:24 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/03/29 17:12:17 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/03/30 21:35:12 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int			ft_copyuntil(char **dst, char *src, char c)
 {
 	int		i;
 	int		k;
-	int		pos;
 
 	i = -1;
 	k = 0;

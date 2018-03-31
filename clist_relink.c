@@ -6,11 +6,11 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/15 04:04:06 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/03/16 07:25:52 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/03/30 21:34:18 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "clist.h"
+#include "libft.h"
 
 void	ft_relinklr(t_clist *n)
 {

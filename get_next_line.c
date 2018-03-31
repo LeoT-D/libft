@@ -6,12 +6,11 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/20 15:35:11 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/03/30 20:48:10 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/03/30 21:34:51 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "get_next_line.h"
 #include <stdlib.h>
 #include <unistd.h>
 

@@ -6,11 +6,11 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/15 04:05:12 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/03/30 01:10:40 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/03/30 21:34:08 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "clist.h"
+#include "libft.h"
 
 void	ft_lstcaddr(t_clist *lst, t_clist *n)
 {
