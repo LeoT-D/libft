@@ -6,7 +6,7 @@
 #    By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/21 19:18:37 by ltanenba          #+#    #+#              #
-#    Updated: 2018/03/30 01:17:10 by ltanenba         ###   ########.fr        #
+#    Updated: 2018/03/30 18:00:50 by ltanenba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,7 +81,8 @@ BONUS_SRC	= ft_lstnew.c \
 			  ft_lstiter.c \
 			  ft_lstmap.c \
 			  ft_numlen_base.c \
-			  ft_copyuntil.c
+			  ft_copyuntil.c \
+			  get_next_line.c
 
 CLIST_SRC	= clist_delink.c \
 			  clist_relink.c \
