@@ -6,7 +6,7 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/20 15:35:11 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/03/30 17:43:27 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/03/30 20:48:10 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,11 +91,11 @@ int							get_next_line(const int fd, char **line)
 	if (fd < 0 || !line || read(fd, buf, 0) < 0)
 		return (-1);
 	file = st_get_file(&flist, fd);
-	MALLOC_CHECK(*line = ft_strnew(1));
+	GNL_MALLOC_CHECK(*line = ft_strnew(1));
 	while ((read_num = read(fd, buf, BUFF_SIZE)))
 	{
 		buf[read_num] = '\0';
-		MALLOC_CHECK(st_strjoin_free((char **)&(file->content), buf));
+		GNL_MALLOC_CHECK(st_strjoin_free((char **)&(file->content), buf));
 		if (ft_strchr(buf, '\n'))
 			break ;
 	}
