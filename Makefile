@@ -6,12 +6,15 @@
 #    By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/21 19:18:37 by ltanenba          #+#    #+#              #
-#    Updated: 2018/03/30 18:00:50 by ltanenba         ###   ########.fr        #
+#    Updated: 2018/04/19 15:45:34 by ltanenba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libft.a
-FLAGS		= -Wall -Werror -Wextra -I. -c
+
+CC			= gcc
+CFLAGS		= -Wall -Werror -Wextra -I includes -c
+
 LIBC_SRC	= ft_memset.c \
 			  ft_bzero.c \
 			  ft_memcpy.c \
@@ -89,23 +92,28 @@ CLIST_SRC	= clist_delink.c \
 			  clist_lstcadd.c \
 			  ft_lstcnew.c
 
-SRC			= $(LIBC_SRC) $(ADD_SRC) $(EX_SRC) $(BONUS_SRC) $(CLIST_SRC)
-OBJ			= $(SRC:%.c=%.o)
+FILES		+= $(LIBC_SRC) $(ADD_SRC) $(EX_SRC) $(BONUS_SRC) $(CLIST_SRC)
+
+SRC			= $(addprefix src/, $(FILES))
+OBJ			= $(addprefix obj/, $(FILES:.c=.o))
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	ar rs $(NAME) $(OBJ)
 
-$(OBJ): $(SRC)
-	gcc $(FLAGS) $(SRC)
-
 clean:
-	rm -f $(OBJ)
+	rm -rf obj/
 
 fclean: clean
 	rm -f $(NAME)
 
+obj:
+	mkdir obj/
+
+obj/%.o: src/%.c | obj
+	$(CC) $(CFLAGS) -c $< -o $@
+
 re: fclean all
 
-.PHONY: clean fclean all re test testclean repo
+.PHONY: clean fclean all re
