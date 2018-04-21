@@ -6,7 +6,7 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/20 15:35:11 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/04/20 15:43:54 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/04/20 18:18:54 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,6 @@ static t_list				*st_get_file(t_list **file, int fd)
 	tmp = ft_lstnew("\0", fd);
 	ft_lstadd(file, tmp);
 	return (*file);
-}
-
-static int					st_strjoin_free(char **dst, char *src)
-{
-	char			*tmp;
-
-	tmp = *dst;
-	*dst = ft_strjoin(*dst, src);
-	if (!*dst)
-		return (0);
-	free(tmp);
-	return (1);
 }
 
 static char					*st_strsub_free(char *s, unsigned int i)
@@ -93,7 +81,7 @@ int							get_next_line(const int fd, char **line)
 	while ((read_num = read(fd, buf, BUFF_SIZE)))
 	{
 		buf[read_num] = '\0';
-		GNL_MALLOC_CHECK(st_strjoin_free((char **)&(file->content), buf));
+		GNL_MALLOC_CHECK(ft_strjoin_free((char **)&(file->content), buf));
 		if (ft_strchr(buf, '\n'))
 			break ;
 	}

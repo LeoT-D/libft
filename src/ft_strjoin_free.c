@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin_free.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/22 16:47:27 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/04/20 19:10:42 by ltanenba         ###   ########.fr       */
+/*   Created: 2018/04/20 18:16:08 by ltanenba          #+#    #+#             */
+/*   Updated: 2018/04/20 18:19:50 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-/*
-** Takes string { s }. Creates a new string of size { len } 
-** and copies { len } characters from { s + start }.
-*/
-
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+int					ft_strjoin_free(char **dst, char *src)
 {
-	unsigned int		i;
-	char				*tmp;
+	char			*tmp;
 
-	if (!s)
+	tmp = *dst;
+	*dst = ft_strjoin(*dst, src);
+	if (!*dst)
 		return (0);
-	i = 0;
-	tmp = ft_strnew(len);
-	if (!tmp)
-		return (0);
-	while (i < len)
-	{
-		*(tmp + i) = *(s + start + i);
-		i++;
-	}
-	return (tmp);
+	free(tmp);
+	return (1);
 }
