@@ -6,14 +6,14 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/22 16:47:27 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/04/20 19:10:42 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/04/24 16:46:51 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** Takes string { s }. Creates a new string of size { len } 
+** Takes string { s }. Creates a new string of size { len }
 ** and copies { len } characters from { s + start }.
 */
 

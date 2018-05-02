@@ -6,14 +6,15 @@
 #    By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/21 19:18:37 by ltanenba          #+#    #+#              #
-#    Updated: 2018/04/19 15:45:34 by ltanenba         ###   ########.fr        #
+#    Updated: 2018/04/26 18:31:34 by ltanenba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libft.a
 
 CC			= gcc
-CFLAGS		= -Wall -Werror -Wextra -I includes -c
+CFLAGS		= -Wall -Werror -Wextra -I includes
+INCLUDES	= includes/libft.h
 
 LIBC_SRC	= ft_memset.c \
 			  ft_bzero.c \
@@ -66,6 +67,7 @@ ADD_SRC		= ft_putchar.c \
 			  ft_strnequ.c \
 			  ft_strsub.c \
 			  ft_strjoin.c \
+			  ft_strjoin_free.c \
 			  ft_strtrim.c \
 			  ft_strsplit.c
 
@@ -97,22 +99,45 @@ FILES		+= $(LIBC_SRC) $(ADD_SRC) $(EX_SRC) $(BONUS_SRC) $(CLIST_SRC)
 SRC			= $(addprefix src/, $(FILES))
 OBJ			= $(addprefix obj/, $(FILES:.c=.o))
 
+# Cosmetics Section:
+
+OK_COLOR	= \033[38;5;105;1m
+OBJ_COLOR	= \033[38;5;208m
+COM_COLOR	= \033[38;5;200m
+LIB_COLOR	= \033[1;32m
+NO_COLOR    = \033[m
+
+COM_STRING	= "Compiling:"
+
+# End Cosmetics.
+
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rs $(NAME) $(OBJ)
+	@printf "%b" "$(LIB_COLOR)Creating Archive: $(OK_COLOR)$@\n$(NO_COLOR)"
+	@ar rcs $(NAME) $(OBJ)
 
 clean:
-	rm -rf obj/
+	@rm -rf obj/
 
 fclean: clean
-	rm -f $(NAME)
+	@printf "Cleaning up libft...\n"
+	@rm -f $(NAME)
 
 obj:
-	mkdir obj/
+	@printf "Creating obj/ directory...\n"
+	@mkdir obj/
 
 obj/%.o: src/%.c | obj
-	$(CC) $(CFLAGS) -c $< -o $@
+	@printf "%b" "$(COM_COLOR)  $(COM_STRING) $(OBJ_COLOR)$@\n$(NO_COLOR)"
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+norm:
+	@printf "%b" "$(LIB_COLOR)Checking Norm...\n$(NO_COLOR)"
+	@norminette $(SRC) $(INCLUDES)
+
+objfiles: $(OBJ)
+	@printf "%b" "$(LIB_COLOR)Libft: Created *.o files...\n$(NO_COLOR)"
 
 re: fclean all
 
