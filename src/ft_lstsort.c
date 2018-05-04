@@ -6,11 +6,16 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/27 20:29:24 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/02/28 19:03:53 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/05/03 21:46:47 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** Comparison function returns [ 1 ] if [ a ] takes precedence.
+** and [ 0 ] if [ b ].
+*/
 
 static void		st_split(t_list *head, t_list **a, t_list **b)
 {
