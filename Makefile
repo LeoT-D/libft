@@ -6,7 +6,7 @@
 #    By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/21 19:18:37 by ltanenba          #+#    #+#              #
-#    Updated: 2018/04/26 18:31:34 by ltanenba         ###   ########.fr        #
+#    Updated: 2018/06/09 00:37:41 by ltanenba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME		= libft.a
 
 CC			= gcc
 CFLAGS		= -Wall -Werror -Wextra -I includes
-INCLUDES	= includes/libft.h
+INCLUDES	= includes/libft.h \
+			  includes/ft_prompt.h
 
 LIBC_SRC	= ft_memset.c \
 			  ft_bzero.c \
@@ -94,7 +95,16 @@ CLIST_SRC	= clist_delink.c \
 			  clist_lstcadd.c \
 			  ft_lstcnew.c
 
-FILES		+= $(LIBC_SRC) $(ADD_SRC) $(EX_SRC) $(BONUS_SRC) $(CLIST_SRC)
+PROMPT_SRC	= cursor_movement.c \
+			  delete.c \
+			  edit_loop.c \
+			  ft_prompt.c \
+			  print.c \
+			  setup.c
+
+PRT_SRC		= $(addprefix ft_prompt/, $(PROMPT_SRC))
+
+FILES		+= $(LIBC_SRC) $(ADD_SRC) $(EX_SRC) $(BONUS_SRC) $(CLIST_SRC) $(PRT_SRC)
 
 SRC			= $(addprefix src/, $(FILES))
 OBJ			= $(addprefix obj/, $(FILES:.c=.o))
@@ -127,6 +137,7 @@ fclean: clean
 obj:
 	@printf "Creating obj/ directory...\n"
 	@mkdir obj/
+	@mkdir obj/ft_prompt
 
 obj/%.o: src/%.c | obj
 	@printf "%b" "$(COM_COLOR)  $(COM_STRING) $(OBJ_COLOR)$@\n$(NO_COLOR)"
