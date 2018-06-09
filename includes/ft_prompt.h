@@ -6,7 +6,7 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/07 22:14:36 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/06/08 07:54:34 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/06/09 03:15:07 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FT_PROMPT_H
 
 # include "libft.h"
-# include "ft_printf.h"
 # include <termcap.h>
 # include <sys/ioctl.h>
 # include <termios.h>
