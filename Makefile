@@ -6,7 +6,7 @@
 #    By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/21 19:18:37 by ltanenba          #+#    #+#              #
-#    Updated: 2018/06/09 03:11:49 by ltanenba         ###   ########.fr        #
+#    Updated: 2018/06/10 00:26:41 by ltanenba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ NAME		= libft.a
 CC			= gcc
 CFLAGS		= -Wall -Werror -Wextra -I includes
 INCLUDES	= includes/libft.h \
-			  includes/ft_prompt.h
+			  includes/ft_prompt.h \
+			  includes/ft_printf.h
 
 LIBC_SRC	= ft_memset.c \
 			  ft_bzero.c \
@@ -68,29 +69,28 @@ ADD_SRC		= ft_putchar.c \
 			  ft_strnequ.c \
 			  ft_strsub.c \
 			  ft_strjoin.c \
-			  ft_strjoin_free.c \
 			  ft_strtrim.c \
 			  ft_strsplit.c
 
-EX_SRC		= ft_itoa_base.c \
-			  ft_strrev.c \
-			  ft_isspace.c \
-			  ft_strjoin_null.c \
-			  ft_isupper.c \
+EXTRA_SRC	= ft_itoa_base.c \
 			  ft_islower.c \
-			  ft_lstsort.c
+			  ft_isspace.c \
+			  ft_isupper.c \
+			  ft_strjoin_free.c \
+			  ft_strjoin_null.c \
+			  ft_numlen_base.c \
+			  ft_strrev.c \
+			  ft_copyuntil.c \
+			  get_next_line.c
 
-BONUS_SRC	= ft_lstnew.c \
+LIST_SRC	= ft_lstnew.c \
 			  ft_lstdelone.c \
 			  ft_lstdel.c \
 			  ft_lstadd.c \
 			  ft_lstiter.c \
 			  ft_lstmap.c \
-			  ft_numlen_base.c \
-			  ft_copyuntil.c \
-			  get_next_line.c
-
-CLIST_SRC	= clist_delink.c \
+			  ft_lstsort.c \
+			  clist_delink.c \
 			  clist_relink.c \
 			  clist_lstcadd.c \
 			  ft_lstcnew.c
@@ -102,9 +102,16 @@ PROMPT_SRC	= cursor_movement.c \
 			  print.c \
 			  setup.c
 
-PRT_SRC		= $(addprefix ft_prompt/, $(PROMPT_SRC))
+PRINTF_SRC	= ft_printf.c \
 
-FILES		+= $(LIBC_SRC) $(ADD_SRC) $(EX_SRC) $(BONUS_SRC) $(CLIST_SRC) $(PRT_SRC)
+LIBC_FP		= $(addprefix libc_funcs/,	$(LIBC_SRC))
+ADD_FP		= $(addprefix add_funcs/,	$(ADD_SRC))
+EXTRA_FP	= $(addprefix extra_funcs/,	$(EXTRA_SRC))
+LIST_FP		= $(addprefix list_funcs/,	$(LIST_SRC))
+PROMPT_FP	= $(addprefix ft_prompt/,	$(PROMPT_SRC))
+PRINTF_FP	= $(addprefix ft_printf/,	$(PRINTF_SRC))
+
+FILE_PATHS	+= $(LIBC_FP) $(ADD_FP) $(EX_FP) $(LIST_FP) $(PROMPT_FP) $(PRINTF_FP)
 
 SRC			= $(addprefix src/, $(FILES))
 OBJ			= $(addprefix obj/, $(FILES:.c=.o))
@@ -137,6 +144,11 @@ fclean: clean
 obj:
 	@printf "Creating obj/ directory...\n"
 	@mkdir obj/
+	@mkdir obj/libc_funcs
+	@mkdir obj/add_funcs
+	@mkdir obj/extra_funcs
+	@mkdir obj/list_funcs
+	@mkdir obj/ft_printf
 	@mkdir obj/ft_prompt
 
 obj/%.o: src/%.c | obj
