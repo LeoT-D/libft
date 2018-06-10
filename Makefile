@@ -6,7 +6,7 @@
 #    By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/21 19:18:37 by ltanenba          #+#    #+#              #
-#    Updated: 2018/06/10 03:05:59 by ltanenba         ###   ########.fr        #
+#    Updated: 2018/06/10 03:39:07 by ltanenba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME		= libft.a
 
 CC			= gcc
 CFLAGS		= -Wall -Werror -Wextra -I includes
+
 INCLUDES	= includes/libft.h \
 			  includes/ft_prompt.h \
 			  includes/ft_printf.h
@@ -104,6 +105,7 @@ PROMPT_SRC	= cursor_movement.c \
 			  setup.c
 
 PRINTF_SRC	= ft_printf.c \
+			  buffer_funcs.c \
 
 LIBC_FP		= $(addprefix libc_funcs/,	$(LIBC_SRC))
 ADD_FP		= $(addprefix add_funcs/,	$(ADD_SRC))

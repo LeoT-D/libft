@@ -6,7 +6,7 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/19 17:33:29 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/06/10 02:58:04 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/06/10 03:42:54 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct				s_conv
 }							t_conv;
 
 int							ft_printf(const char *format, ...);
-int							pf_append_to_buf(char *str);
-int							pf_append_substr_to_buf(char *str, size_t len);
+int							pf_append_to_buf(const char *str);
+int							pf_append_substr_to_buf(const char *str, size_t len);
 
 #endif
