@@ -6,7 +6,7 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/07 22:14:36 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/06/09 03:15:07 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/06/09 07:28:31 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_PROMPT_H
 
 # include "libft.h"
+# include "ft_printf.h"
 # include <termcap.h>
 # include <sys/ioctl.h>
 # include <termios.h>
@@ -21,9 +22,11 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-# define LINE_START_SIZE 64
+# define LINE_START_SIZE 256
+# define MAX_HISTORY_LEN 200
 
 # define MALL_CHECK(x) if (!(x)) return (-1)
+# define ERR_CHECK(x) if ((x) == -1) return (-1)
 
 /* Deletes from the cursor until end of term */
 # define DEL_END_SEQ "\033[0K"
@@ -78,7 +81,7 @@ typedef struct					s_prompt
 	size_t				len;
 	size_t				cols;
 	size_t				pos;
-//	int					history_index;
+	int					his_idx;
 }								t_prompt;
 
 typedef struct					s_term
@@ -99,15 +102,31 @@ char					*ft_prompt(char *prompt_str);
 int						line_edit_loop(t_prompt *p);
 int						term_init(t_term *t);
 int						prompt_init(t_prompt *p, char *pstr);
-void					print_line(t_prompt *p);
-int						ft_weirdchar(int c);
+int						print_line(t_prompt *p);
 
 /*
-** Editing functions.
+** Editing functions
 */
 
 int						edit_insert(t_prompt *p, long c);
 int						edit_delete(t_prompt *p, long c);
 int						cursor_move(t_prompt *p, long c);
+
+/*
+** History functions
+*/
+
+int						move_through_history(t_prompt *p, int dir);
+int						ft_prompt_history_set_len(int len);
+int						ft_prompt_history_add(char *str);
+
+/*
+** Cleanup functions
+*/
+
+void					ft_prompt_cleanup(void);
+int						forget_most_recent(void);
+void					cleanup_history(void);
+void					reset_term(t_term *t);
 
 #endif

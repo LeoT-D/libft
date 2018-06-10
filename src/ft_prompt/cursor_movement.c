@@ -6,7 +6,7 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/08 04:57:23 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/06/08 07:53:11 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/06/08 08:28:32 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int				cursor_move(t_prompt *p, long c)
 		p->pos = 0;
 	if (c == DOWN_ARR)
 		p->pos = p->len;
-	print_line(p);
+	ERR_CHECK(print_line(p));
 	return (0);
 }
