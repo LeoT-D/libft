@@ -6,12 +6,15 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/19 15:42:33 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/04/24 15:08:29 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/06/10 02:10:21 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# include "ft_printf.h"
+# include "ft_prompt.h"
 
 # include <string.h>
 

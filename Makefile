@@ -6,7 +6,7 @@
 #    By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/21 19:18:37 by ltanenba          #+#    #+#              #
-#    Updated: 2018/06/10 00:26:41 by ltanenba         ###   ########.fr        #
+#    Updated: 2018/06/10 00:34:36 by ltanenba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -111,7 +111,7 @@ LIST_FP		= $(addprefix list_funcs/,	$(LIST_SRC))
 PROMPT_FP	= $(addprefix ft_prompt/,	$(PROMPT_SRC))
 PRINTF_FP	= $(addprefix ft_printf/,	$(PRINTF_SRC))
 
-FILE_PATHS	+= $(LIBC_FP) $(ADD_FP) $(EX_FP) $(LIST_FP) $(PROMPT_FP) $(PRINTF_FP)
+FILES		+= $(LIBC_FP) $(ADD_FP) $(EX_FP) $(LIST_FP) $(PROMPT_FP) $(PRINTF_FP)
 
 SRC			= $(addprefix src/, $(FILES))
 OBJ			= $(addprefix obj/, $(FILES:.c=.o))
