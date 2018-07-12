@@ -6,7 +6,7 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/19 15:42:33 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/06/10 02:10:21 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/07/12 01:56:20 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
 
 /*
-** Bonus Funks
+** List Funks
 */
 
 # ifndef S_LIST
@@ -117,6 +117,7 @@ int					ft_islower(int c);
 void				ft_lstsort(t_list **head, int (*cmp)(void *, void *));
 int					ft_numlen_base(long n, int base);
 int					ft_copyuntil(char **dst, char *src, char c);
+char				*ft_getenv(const char *name);
 
 /*
 ** Get Next Line
@@ -129,7 +130,7 @@ int					ft_copyuntil(char **dst, char *src, char c);
 int					get_next_line(const int fd, char **line);
 
 /*
-** Circular Lists
+** Circular List Funks
 */
 
 typedef struct		s_clist

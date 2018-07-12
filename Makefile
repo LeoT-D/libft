@@ -6,7 +6,7 @@
 #    By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/21 19:18:37 by ltanenba          #+#    #+#              #
-#    Updated: 2018/06/10 03:39:07 by ltanenba         ###   ########.fr        #
+#    Updated: 2018/07/12 01:51:11 by ltanenba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,7 +82,8 @@ EXTRA_SRC	= ft_itoa_base.c \
 			  ft_numlen_base.c \
 			  ft_strrev.c \
 			  ft_copyuntil.c \
-			  get_next_line.c
+			  get_next_line.c \
+			  ft_getenv.c
 
 LIST_SRC	= ft_lstnew.c \
 			  ft_lstdelone.c \
@@ -114,7 +115,7 @@ LIST_FP		= $(addprefix list_funcs/,	$(LIST_SRC))
 PROMPT_FP	= $(addprefix ft_prompt/,	$(PROMPT_SRC))
 PRINTF_FP	= $(addprefix ft_printf/,	$(PRINTF_SRC))
 
-FILES		+= $(LIBC_FP) $(ADD_FP) $(EX_FP) $(LIST_FP) $(PROMPT_FP) $(PRINTF_FP)
+FILES		+= $(LIBC_FP) $(ADD_FP) $(EXTRA_FP) $(LIST_FP) $(PROMPT_FP) $(PRINTF_FP)
 
 SRC			= $(addprefix src/, $(FILES))
 OBJ			= $(addprefix obj/, $(FILES:.c=.o))
