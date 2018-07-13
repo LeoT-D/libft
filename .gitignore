@@ -58,4 +58,3 @@ dkms.conf
 *.c~
 *DS_STORE*
 *DS_Store*
-42sh
