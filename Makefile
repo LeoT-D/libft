@@ -6,18 +6,18 @@
 #    By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/21 19:18:37 by ltanenba          #+#    #+#              #
-#    Updated: 2018/07/12 01:51:11 by ltanenba         ###   ########.fr        #
+#    Updated: 2018/07/12 17:47:35 by ltanenba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libft.a
 
 CC			= gcc
-CFLAGS		= -Wall -Werror -Wextra -I includes
+CFLAGS		= -Wall -Werror -Wextra -I inc
 
-INCLUDES	= includes/libft.h \
-			  includes/ft_prompt.h \
-			  includes/ft_printf.h
+INCLUDES	= inc/libft.h \
+			  inc/ft_prompt.h \
+			  inc/ft_printf.h
 
 LIBC_SRC	= ft_memset.c \
 			  ft_bzero.c \
@@ -139,6 +139,7 @@ $(NAME): $(OBJ)
 	@ar rcs $(NAME) $(OBJ)
 
 clean:
+	@printf "Removing obj files...\n"
 	@rm -rf obj/
 
 fclean: clean
@@ -160,7 +161,7 @@ obj/%.o: src/%.c | obj
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 norm:
-	@printf "%b" "$(LIB_COLOR)Checking Norm...\n$(NO_COLOR)"
+	@printf "%b" "$(LIB_COLOR)Libft: Checking Norm...\n$(NO_COLOR)"
 	@norminette $(SRC) $(INCLUDES)
 
 objfiles: $(OBJ)
