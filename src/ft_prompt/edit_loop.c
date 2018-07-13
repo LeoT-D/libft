@@ -48,31 +48,30 @@ int				edit_insert(t_prompt *p, long c)
 	return (0);
 }
 
-int				line_edit_loop(t_prompt *p)
+int				line_edit_loop(t_prompt *p, int status, long c)
 {
-	long		c;
-	int			status;
-
-	status = 0;
 	ft_prompt_history_add("");
 	print_line(p);
 	while (!status)
 	{
 		c = 0;
 		read(p->ifd, &c, 8);
-//		printf("%ld\n\r", c);
 		if (c == ESC)
-			;//Escape Sequences!
+			;
+		else if (c == CTRL_K)
+			status = copy_line(p);
+		else if (c == CTRL_P)
+			status = paste_line(p);
 		else if (c == UP_ARR || c == DOWN_ARR)
-			status = move_through_history(p, (c == UP_ARR ? 1 : -1));//Handle history.
-		else if (c == LEFT_ARR || c == RIGHT_ARR)
-			status = cursor_move(p, c);//Handle cursor movement
+			status = move_through_history(p, (c == UP_ARR ? 1 : -1));
+		else if (c == LEFT_ARR || c == RIGHT_ARR || c == CTRL_A || c == CTRL_E)
+			status = cursor_move(p, c);
 		else if (c == DELETE || c == BACKSPACE)
-			status = edit_delete(p, c);//Handle deletion
+			status = edit_delete(p, c);
 		else if (c >= 32 && c <= 126)
-			status = edit_insert(p, c);//Add ("type") to buffer.
+			status = edit_insert(p, c);
 		else if (c == ENTER)
-			return (forget_most_recent());//Send command
+			return (forget_most_recent());
 	}
 	return (status);
 }

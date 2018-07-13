@@ -6,7 +6,7 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/08 01:52:34 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/06/08 21:09:32 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/07/10 15:37:21 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,24 @@ int				append_cursor_pos(char **dst, int n)
 	ft_strncpy(esc + 3 + numlen, "C", 2);
 	free(num);
 	ERR_CHECK(append_substr(dst, esc, numlen + 4));
+	return (0);
+}
+
+int				prev_newline_check(t_prompt *p)
+{
+	char		buf[16];
+	char		*b2;
+	int			x;
+	int			y;
+
+	write(1, CUR_SEQ, 4);
+	read(0, buf, 16);
+	x = ft_atoi(buf + 2);
+	b2 = ft_strchr(buf, ';');
+	b2++;
+	y = ft_atoi(b2);
+	if (y != 1)
+		write(p->ofd, "\033[30;47m%\033[0m\n\r", 15);
 	return (0);
 }
 

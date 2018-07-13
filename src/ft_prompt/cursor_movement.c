@@ -16,14 +16,18 @@ int				cursor_move(t_prompt *p, long c)
 {
 	if (c == LEFT_ARR)
 		if (p->pos > 0)
-        	p->pos--;
+			p->pos--;
 	if (c == RIGHT_ARR)
 		if (p->pos != p->len)
-        	p->pos++;
+			p->pos++;
 	if (c == UP_ARR)
 		p->pos = 0;
 	if (c == DOWN_ARR)
 		p->pos = p->len;
+	if (c == CTRL_A)
+		p->pos = 0;
+	if (c == CTRL_E)
+		p->pos = ft_strlen(p->buf);
 	ERR_CHECK(print_line(p));
 	return (0);
 }

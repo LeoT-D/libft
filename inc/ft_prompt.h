@@ -6,7 +6,7 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/07 22:14:36 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/06/09 07:28:31 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/07/10 15:07:43 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,21 @@
 # define MALL_CHECK(x) if (!(x)) return (-1)
 # define ERR_CHECK(x) if ((x) == -1) return (-1)
 
-/* Deletes from the cursor until end of term */
+/*
+** Deletes from the cursor until end of term
+*/
 # define DEL_END_SEQ "\033[0K"
 
-/* Reports the cursor position as: "ESC[x;yR" */
-# define DSR_SEQ "\033[6n"
+/*
+**  Reports the cursor position as: "ESC[x;yR"
+*/
+# define CUR_SEQ "\033[6n"
 
 /*
 ** Input keys
 */
 
-enum							e_key_press
+enum					e_key_press
 {
 	KEY_NULL = 0,
 	CTRL_A = 1,
@@ -58,7 +62,7 @@ enum							e_key_press
 	CTRL_U = 21,
 	CTRL_W = 23,
 	ESC = 27,
-	BACKSPACE =  127,
+	BACKSPACE = 127,
 	DELETE = 2117294875,
 	UP_ARR = 4283163,
 	DOWN_ARR = 4348699,
@@ -70,7 +74,7 @@ enum							e_key_press
 ** Structs
 */
 
-typedef struct					s_prompt
+typedef struct			s_prompt
 {
 	int					ifd;
 	int					ofd;
@@ -79,12 +83,13 @@ typedef struct					s_prompt
 	char				*buf;
 	size_t				buf_size;
 	size_t				len;
+	char				*clipboard;
 	size_t				cols;
 	size_t				pos;
 	int					his_idx;
-}								t_prompt;
+}						t_prompt;
 
-typedef struct					s_term
+typedef struct			s_term
 {
 	char				*name;
 	struct termios		normal;
@@ -92,17 +97,18 @@ typedef struct					s_term
 	int					fd;
 	int					height;
 	int					width;
-}								t_term;
+}						t_term;
 
 /*
 ** Function Declarations
 */
 
 char					*ft_prompt(char *prompt_str);
-int						line_edit_loop(t_prompt *p);
+int						line_edit_loop(t_prompt *p, int status, long c);
 int						term_init(t_term *t);
 int						prompt_init(t_prompt *p, char *pstr);
 int						print_line(t_prompt *p);
+int						prev_newline_check(t_prompt *p);
 
 /*
 ** Editing functions
@@ -128,5 +134,12 @@ void					ft_prompt_cleanup(void);
 int						forget_most_recent(void);
 void					cleanup_history(void);
 void					reset_term(t_term *t);
+
+/*
+**	paste_line.c
+*/
+
+int						copy_line(t_prompt *p);
+int						paste_line(t_prompt *p);
 
 #endif
