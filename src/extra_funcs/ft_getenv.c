@@ -6,13 +6,11 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 01:31:22 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/07/12 02:20:23 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/07/13 18:36:22 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-extern char		**environ;
 
 char		*ft_getenv(const char *name)
 {
@@ -21,11 +19,11 @@ char		*ft_getenv(const char *name)
 	int			i;
 
 	i = 0;
-	while (environ[i])
+	while (g_environ[i])
 	{
-		val = ft_strchr(environ[i], '=');
+		val = ft_strchr(g_environ[i], '=');
 		len = ft_strlen(name);
-		if (!ft_strncmp(environ[i], name, len) && environ[i][len] == '=')
+		if (!ft_strncmp(g_environ[i], name, len) && g_environ[i][len] == '=')
 			return (val + 1);
 		i++;
 	}

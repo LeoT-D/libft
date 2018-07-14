@@ -6,7 +6,7 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/19 15:42:33 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/07/12 21:49:18 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/07/13 18:52:29 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include "ft_prompt.h"
 
 # include <string.h>
+
+char				**g_environ;
 
 /*
 ** Libc Funks
@@ -119,7 +121,8 @@ int					ft_numlen(long long n);
 int					ft_numlen_base(long n, int base);
 int					ft_copyuntil(char **dst, char *src, char c);
 char				*ft_getenv(const char *name);
-size_t				ft_putstr_pad(int max, int d, char *s, int fd, char c);
+size_t				ft_putstr_padl(int max, char *s, int fd, char c);
+size_t				ft_putstr_padr(int max, char *s, int fd, char c);
 
 /*
 ** Get Next Line
