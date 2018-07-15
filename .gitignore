@@ -58,3 +58,4 @@ dkms.conf
 *.c~
 *DS_STORE*
 *DS_Store*
+test*
