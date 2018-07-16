@@ -6,7 +6,7 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/19 15:42:33 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/07/15 14:48:28 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/07/15 17:32:14 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,17 @@ char				*ft_getenv(const char *name);
 size_t				ft_putstr_padl(int max, char *s, int fd, char c);
 size_t				ft_putstr_padr(int max, char *s, int fd, char c);
 unsigned int		ft_sleep(unsigned int seconds);
+
+/*
+** ft_getopt
+*/
+
+int					ft_getopt(int ac, char **av, const char *opt_string);
+
+int					g_opt_index;
+int					g_opt_optchar;
+char				*g_opt_arg;
+int					g_opt_reset;
 
 /*
 ** Get Next Line
