@@ -6,7 +6,7 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/22 16:47:27 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/04/24 16:46:51 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/07/16 15:01:09 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (0);
+	if (len & -1)
+		len = ft_strlen(s + start);
 	i = 0;
 	tmp = ft_strnew(len);
 	if (!tmp)

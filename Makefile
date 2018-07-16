@@ -6,7 +6,7 @@
 #    By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/21 19:18:37 by ltanenba          #+#    #+#              #
-#    Updated: 2018/07/15 20:58:28 by ltanenba         ###   ########.fr        #
+#    Updated: 2018/07/16 15:43:04 by ltanenba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,7 +88,8 @@ EXTRA_SRC	= ft_itoa_base.c \
 			  ft_putstr_pad.c \
 			  ft_sleep.c \
 			  ft_getopt.c \
-			  ft_strsep.c
+			  ft_strsep.c \
+			  ft_putargs.c
 
 LIST_SRC	= ft_lstnew.c \
 			  ft_lstdelone.c \

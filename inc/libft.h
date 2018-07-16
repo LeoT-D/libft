@@ -6,7 +6,7 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/19 15:42:33 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/07/16 13:57:15 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/07/16 15:42:37 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,10 @@ size_t				ft_putstr_padl(int max, char *s, int fd, char c);
 size_t				ft_putstr_padr(int max, char *s, int fd, char c);
 unsigned int		ft_sleep(unsigned int seconds);
 char				*ft_strsep(char **str, char *delim);
+void				ft_putargs_fd_delim(char **av, int fd, char delim);
+void				ft_putargs_fd(char **av, int fd);
+void				ft_putargs_delim(char **av, char delim);
+void				ft_putargs(char **av);
 
 /*
 ** ft_getopt
