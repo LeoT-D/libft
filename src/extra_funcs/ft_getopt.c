@@ -6,7 +6,7 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/15 14:53:20 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/07/16 13:56:34 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/07/16 14:06:16 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ static void		st_reset(int *i)
 static int		st_error(int errid)
 {
 	g_opt_error = errid;
-	g_opt_reset = 1;
 	return (errid);
 }
 
