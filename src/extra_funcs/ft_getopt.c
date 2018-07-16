@@ -6,7 +6,7 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/15 14:53:20 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/07/16 13:40:04 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/07/16 13:56:34 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char			*g_opt_arg = NULL;
 int				g_opt_reset = 0;
 char			*g_ostr_curr;
 char			*g_av_curr;
-int				g_opt_error;
+int				g_opt_error = 0;
 
 static void		st_reset(int *i)
 {

@@ -6,7 +6,7 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/19 15:42:33 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/07/15 20:57:57 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/07/16 13:57:15 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,7 @@ int					g_opt_index;
 int					g_opt_optchar;
 char				*g_opt_arg;
 int					g_opt_reset;
+int					g_opt_error;
 
 /*
 ** Get Next Line
