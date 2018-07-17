@@ -6,7 +6,7 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/15 14:53:20 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/07/16 14:06:16 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/07/16 20:25:53 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void		st_reset(int *i)
 static int		st_error(int errid)
 {
 	g_opt_error = errid;
-	return (errid);
+	return (-1);
 }
 
 static int		st_check_opt(char **av, int *i)
@@ -93,10 +93,10 @@ int				ft_getopt(int ac, char **av, const char *opt_string)
 				g_av_curr = (char *)av[g_opt_index] + i;
 				return (st_check_opt((char **)av, &i));
 			}
-			return (st_error(-1));
+			return (st_error(FT_GETOPT_INVALID_CHAR));
 		}
 		else
-			return (st_error(-1));
+			return (st_error(FT_GETOPT_END_OF_OPTIONS));
 	}
-	return (st_error(-1));
+	return (st_error(FT_GETOPT_END_OF_OPTIONS));
 }

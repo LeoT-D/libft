@@ -6,7 +6,7 @@
 /*   By: ltanenba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/19 15:42:33 by ltanenba          #+#    #+#             */
-/*   Updated: 2018/07/16 15:42:37 by ltanenba         ###   ########.fr       */
+/*   Updated: 2018/07/16 20:22:40 by ltanenba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,9 @@ int					g_opt_optchar;
 char				*g_opt_arg;
 int					g_opt_reset;
 int					g_opt_error;
+
+# define FT_GETOPT_INVALID_CHAR -2
+# define FT_GETOPT_END_OF_OPTIONS -1
 
 /*
 ** Get Next Line
